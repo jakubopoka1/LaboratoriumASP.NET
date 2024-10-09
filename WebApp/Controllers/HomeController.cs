@@ -12,6 +12,12 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+    
+    /*
+     * Zadanie domowe
+     * Napisz metodę Age, która przyjmuje parametr z datą urodzin i wyświetla wiek
+     * w latach, miesiącach i dniach.
+     */
 
     public IActionResult Calculator(Operator? op, double? x, double? y)
     {
