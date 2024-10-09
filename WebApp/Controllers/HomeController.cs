@@ -63,40 +63,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Age(DateTime birthDate)
-    {
-        var age = CalculateAge(birthDate);
-        return View();
-    }
-
-    private AgeViewModel CalculateAge(DateTime birthDate)
-    {
-        DateTime today = DateTime.Now;
-        
-        int years = today.Year - birthDate.Year;
-        int months = today.Month - birthDate.Month;
-        int days = today.Day - birthDate.Day;
-
-        if (days < 0)
-        {
-            months--;
-            days += DateTime.DaysInMonth(today.Year, (today.Month == 1) ? 12 : today.Month - 1);
-        }
-
-        if (months < 0)
-        {
-            years--;
-            months += 12;
-        }
-
-        return new AgeViewModel
-        {
-            Years = years,
-            Months = months,
-            Days = days
-        };
-    }
-
     public IActionResult Index()
     {
         return View();
