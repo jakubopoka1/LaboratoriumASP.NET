@@ -1,0 +1,9 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "Age";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>Twój wiek to: @Model.Years lat, @Model.Months miesięcy, @Model.Days dni</h3>
