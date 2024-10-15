@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.InteropServices.JavaScript;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
 
@@ -18,7 +19,7 @@ public class HomeController : Controller
      * Napisz metodę Age, która przyjmuje parametr z datą urodzin i wyświetla wiek
      * w latach, miesiącach i dniach.
      */
-
+    
     public IActionResult Calculator(Operator? op, double? x, double? y)
     {
         //https://localhost:7182/Home/Calculator?op=div&x=8&y=4
@@ -62,7 +63,46 @@ public class HomeController : Controller
         ViewBag.Y = y;
         return View();
     }
-
+    
+    public IActionResult Age(DateTime date)
+    {
+        DateTime today = DateTime.Today;
+        
+        int years;
+        int months;
+        int days;
+        int daysofyear = 0;
+        
+        if (date.Date > today)
+        {
+            ViewBag.Error("Nie możesz mieć urodziń w przyszłości");
+            return View();
+        }
+        if (date.Month < today.Month)
+        {
+            years = today.Year - date.Year ;
+            months = years * 12;
+            days = today.Subtract(date).Days;
+        }else if (date.Day == today.Day && date.Month == today.Month)
+        {
+            years = today.Year - date.Year ;
+            months = years * 12;
+            days = today.Subtract(date).Days;
+        }
+        else
+        {
+            years = today.Year - date.Year;
+            months = years * 12;
+            days = today.Subtract(date).Days;
+        }
+        
+        ViewBag.Birhtday = date;
+        ViewBag.Years = years;
+        ViewBag.Months = months;
+        ViewBag.Days = days;
+        return View();
+    }
+    
     public IActionResult Index()
     {
         return View();
