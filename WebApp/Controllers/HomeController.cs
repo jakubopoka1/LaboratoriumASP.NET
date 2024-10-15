@@ -75,7 +75,7 @@ public class HomeController : Controller
         
         if (date.Date > today)
         {
-            ViewBag.Error("Nie możesz mieć urodziń w przyszłości");
+            ViewBag.Error("Nie urodziłeś się w przyszłości :)");
             return View();
         }
         if (date.Month < today.Month)
