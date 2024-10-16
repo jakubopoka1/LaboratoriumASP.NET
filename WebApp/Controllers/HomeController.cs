@@ -21,7 +21,7 @@ public class HomeController : Controller
      * w latach, miesiącach i dniach.
      */
 
-    public IActionResult Calculator(Operator? op, double? x, double? y)
+    public IActionResult Calculator(Operators? op, double? x, double? y)
     {
         //https://localhost:7182/Home/Calculator?op=div&x=8&y=4
         //var op = (Request.Query["op"]);
@@ -42,19 +42,19 @@ public class HomeController : Controller
         double? result = 0.0d;
         switch (op)
         {
-            case Operator.Add:
+            case Operators.Add:
                 result = x + y;
                 ViewBag.Operator = "+";
                 break;
-            case Operator.Sub:
+            case Operators.Sub:
                 result = x - y;
                 ViewBag.Operator = "-";
                 break;
-            case Operator.Mul:
+            case Operators.Mul:
                 result = x * y;
                 ViewBag.Operator = "*";
                 break;
-            case Operator.Div:
+            case Operators.Div:
                 result = x / y;
                 ViewBag.Operator = ":";
                 break;
@@ -87,7 +87,7 @@ public class HomeController : Controller
     }
 }
 
-public enum Operator
+public enum Operators
 {
     Add, Sub, Mul, Div
 }

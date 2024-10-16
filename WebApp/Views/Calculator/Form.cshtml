@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Form</title>
-</head>
-<body>
+@model dynamic
 
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Kalkulator</h2>
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-6">
-            <h2>Kalkulator</h2>
+            <h2>Oblicz</h2>
             <form action="Result" method="GET">
                 <div class="mb-3">
                     <label class="form-label" for="x">Liczba 1</label>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="operator">Operator</label>
-                    <input class="form-control" type="text" name="op" id="operator"/>
+                    <input class="form-control" type="text" name="operator" id="operator"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="y">Liczba 2</label>
@@ -30,6 +30,3 @@
         </div>
     </div>
 </div>
-
-</body>
-</html>
