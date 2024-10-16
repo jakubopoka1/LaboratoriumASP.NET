@@ -11,7 +11,8 @@ public class CalculatorController : Controller
         return View();
     }
     
-    public IActionResult Result(Calculator model)
+    [HttpPost]
+    public IActionResult Result([FromForm] Calculator model)
     {
         if (!model.IsValid())
         {
