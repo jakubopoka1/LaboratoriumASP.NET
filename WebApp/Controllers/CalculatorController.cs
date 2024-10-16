@@ -1,32 +1,17 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
 
 namespace WebApp.Controllers;
 
-public class HomeController : Controller
+public class CalculatorController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    // GET
+    public IActionResult Index()
     {
-        _logger = logger;
+        return View();
     }
     
-    
-    
-    /*
-     * Zadanie domowe
-     * Napisz metodę Age, która przyjmuje parametr z datą urodzin i wyświetla wiek
-     * w latach, miesiącach i dniach.
-     */
-
     public IActionResult Calculator(Operator? op, double? x, double? y)
     {
-        //https://localhost:7182/Home/Calculator?op=div&x=8&y=4
-        //var op = (Request.Query["op"]);
-        //var x = double.Parse(Request.Query["x"]);
-        //var y = double.Parse(Request.Query["y"]);
         if (x is null || y is null)
         {
             ViewBag.ErrorMessage = "Niepoprawny format liczby x lub y lub brak parametru!";
@@ -64,30 +49,9 @@ public class HomeController : Controller
         ViewBag.Y = y;
         return View();
     }
-
-    public IActionResult Index()
+    
+    public IActionResult Form()
     {
         return View();
     }
-
-    public IActionResult About()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-}
-
-public enum Operator
-{
-    Add, Sub, Mul, Div
 }
