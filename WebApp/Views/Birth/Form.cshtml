@@ -1,0 +1,29 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "Obliczanie wieku";
+    Layout = "_Layout";
+}
+
+<div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <h2>Obliczanie wieku</h2>
+                <form action="Result" method="GET">
+                    <div class="mb-3">
+                        <label class="form-label" for="Name">Podaj Imię:</label>
+                        <input class="form-control" type="text" Name="Name" id="Name"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="Date">Podaj datę urodzenia: </label>
+                        <input class="form-control" type="Date" name="Date" id="Date"/>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit">Oblicz wiek</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
