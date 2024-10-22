@@ -10,9 +10,9 @@ public class BirthController : Controller
         return View();
     }
     
-    public IActionResult Result(Birth birth)
+    public IActionResult BirthdayResult(Birthday birth)
     {
-        if (birth.IsValid())
+        if (!birth.IsValid())
         {
             return View("Error");
         }
@@ -20,7 +20,7 @@ public class BirthController : Controller
         return View(birth);
     }
     
-    public IActionResult Form()
+    public IActionResult BirthdayForm()
     {
         return View();
     }
